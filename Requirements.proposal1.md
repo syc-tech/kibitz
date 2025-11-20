@@ -17,9 +17,11 @@ Now:
 Next: 
 ---
 - Web interface for directly editing & viewing data
+- Accept voice notes
+- Send message with diff if updated from other channel
 
 
 Later: 
 ---
-- Allow assigning tasks
+- Allow assigning tasks to 
 
