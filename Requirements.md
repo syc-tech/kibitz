@@ -16,6 +16,7 @@ Now:
 
 Next: 
 ---
+- Task / reminder dependencies
 - Web interface for directly editing & viewing data
 - Accept voice notes
 - Send message with diff if updated from other channel
