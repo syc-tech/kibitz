@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import type { UserProfile } from '../types';
+import { API_BASE } from '../config';
 
 interface RegistrationFormProps {
   onRegistered(user: UserProfile): void;
 }
-
-const API_BASE = import.meta.env.VITE_API_BASE_URL ?? '';
 
 export function RegistrationForm({ onRegistered }: RegistrationFormProps) {
   const [username, setUsername] = useState('');

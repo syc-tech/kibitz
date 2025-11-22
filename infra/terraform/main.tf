@@ -38,9 +38,8 @@ resource "google_sql_database_instance" "primary" {
     tier = var.db_tier
     availability_type = "ZONAL"
     ip_configuration {
-      ipv4_enabled    = true
-      require_ssl     = false
-      authorized_networks = []
+      ipv4_enabled = true
+      ssl_mode     = "ENCRYPTED_ONLY"
     }
     backup_configuration {
       enabled = true
@@ -79,10 +78,6 @@ resource "google_cloud_run_v2_service" "api" {
     service_account = google_service_account.run.email
     containers {
       image = local.server_image
-      env {
-        name  = "PORT"
-        value = "8080"
-      }
       env {
         name  = "NODE_ENV"
         value = "production"

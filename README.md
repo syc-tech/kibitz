@@ -45,7 +45,7 @@ Environment variables
 - `BYPASS_TEMPORAL=true`: Execute the activities inline without Temporal. Useful for local demos if you do not have a Temporal service running.
 - `OTP_DIRECTORY`: Optional JSON array of `{ "username": string, "otp": string, "userId"?: string }` objects that define who can link a chat. Defaults to two demo users.
 - `DATA_DIR`: Directory where consent + user JSON files are stored (default `server/data`).
-- `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `DB_SSL`: Postgres connection options. When running against the deployed Cloud SQL instance, `DB_HOST` should be `/cloudsql/<instance-connection-name>` with `DB_PORT=5432`.
+- `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `DB_SSL`: Postgres connection options. When running against the deployed Cloud SQL instance, set `DB_HOST=/cloudsql/<instance-connection-name>` (the connection between Cloud Run and Cloud SQL is already encrypted). Set `DB_SSL=true` only when connecting over TCP.
 - `TWILIO_ACCOUNT_SID` / `TWILIO_AUTH_TOKEN` / `TWILIO_MESSAGING_SERVICE_SID`: Enables inbound/outbound MMS handling via `POST /api/twilio/mms`.
 - `TWILIO_DEFAULT_FROM`: Optional fallback phone number to set as the sender when replying through Twilio.
 

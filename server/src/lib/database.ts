@@ -21,7 +21,8 @@ const config: PoolConfig = {
   database: DB_NAME
 };
 
-if (DB_SSL === 'true') {
+const usingSocket = DB_HOST?.startsWith('/');
+if (!usingSocket && DB_SSL === 'true') {
   config.ssl = { rejectUnauthorized: false };
 }
 

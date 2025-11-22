@@ -7,3 +7,8 @@ terraform.tfstate
 terraform.tfstate.*
 gcp-service-account.json
 .env
+node_modules
+server/dist
+server/src/**/*.js
+web/dist
+web/src/**/*.js

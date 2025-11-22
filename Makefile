@@ -3,7 +3,7 @@ REGION ?= us-central1
 ARTIFACT_REPOSITORY ?= kibitz
 CLOUD_RUN_REGION ?= $(REGION)
 DB_REGION ?= $(REGION)
-IMAGE_TAG ?= $(shell git rev-parse --short HEAD)
+IMAGE_TAG ?= $(shell git rev-parse --short HEAD)-$(shell date +%s)
 TF_STATE_BUCKET ?=
 
 .PHONY: deploy

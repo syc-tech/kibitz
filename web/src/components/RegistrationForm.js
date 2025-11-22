@@ -1,6 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
-const API_BASE = import.meta.env.VITE_API_BASE_URL ?? '';
+import { API_BASE } from '../config';
 export function RegistrationForm({ onRegistered }) {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');

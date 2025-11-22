@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from 'react';
+import { API_BASE } from '../config';
 const SERVICES = ['slack', 'discord', 'sms', 'email'];
-const API_BASE = import.meta.env.VITE_API_BASE_URL ?? '';
 export function OAuthConnect({ user, onUpdated }) {
     const [service, setService] = useState(SERVICES[0]);
     const [loading, setLoading] = useState(false);

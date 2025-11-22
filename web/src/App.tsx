@@ -5,9 +5,7 @@ import { ConsentStatusCard } from './components/ConsentStatusCard';
 import { ChatList } from './components/ChatList';
 import { MessageFeed } from './components/MessageFeed';
 import type { ChatRecord, MessageRecord, UserProfile } from './types';
-
-const API_BASE = import.meta.env.VITE_API_BASE_URL ?? '';
-const EVENTS_URL = API_BASE ? `${API_BASE}/api/events` : '/api/events';
+import { API_BASE, EVENTS_URL } from './config';
 
 export default function App() {
   const [user, setUser] = useState<UserProfile>();

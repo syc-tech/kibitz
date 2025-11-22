@@ -1,4 +1,5 @@
 import express, { Express } from 'express';
+import cors from 'cors';
 import type { Server } from 'node:http';
 import { DEFAULT_SERVER_PORT } from './config/constants';
 import { messageRouter } from './routes/messageRoutes';
@@ -9,7 +10,16 @@ import { eventRouter } from './routes/eventRoutes';
 
 export async function createServer(): Promise<Express> {
   const app = express();
+  app.use(
+    cors({
+      origin: process.env.ALLOWED_ORIGINS
+        ? process.env.ALLOWED_ORIGINS.split(',').map((value) => value.trim())
+        : '*',
+      credentials: false
+    })
+  );
   app.use(express.json({ limit: '1mb' }));
+
   app.get('/healthz', (_req, res) => res.json({ status: 'ok' }));
   app.use('/api', messageRouter);
   app.use('/api/users', userRouter);

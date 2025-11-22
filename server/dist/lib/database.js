@@ -14,7 +14,8 @@ const config = {
     password: DB_PASSWORD,
     database: DB_NAME
 };
-if (DB_SSL === 'true') {
+const usingSocket = DB_HOST?.startsWith('/');
+if (!usingSocket && DB_SSL === 'true') {
     config.ssl = { rejectUnauthorized: false };
 }
 exports.pool = new pg_1.Pool(config);

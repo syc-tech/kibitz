@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { UserProfile } from '../types';
+import { API_BASE } from '../config';
 
 interface OAuthConnectProps {
   user?: UserProfile;
@@ -7,8 +8,6 @@ interface OAuthConnectProps {
 }
 
 const SERVICES = ['slack', 'discord', 'sms', 'email'];
-const API_BASE = import.meta.env.VITE_API_BASE_URL ?? '';
-
 export function OAuthConnect({ user, onUpdated }: OAuthConnectProps) {
   const [service, setService] = useState(SERVICES[0]);
   const [loading, setLoading] = useState(false);

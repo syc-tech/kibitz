@@ -26,6 +26,8 @@ steps:
       - build
       - -f
       - Dockerfile.web
+      - --build-arg
+      - VITE_API_BASE_URL=${_VITE_API_BASE_URL}
       - -t
       - ${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/kibitz-web:${_IMAGE_TAG}
       - .
@@ -41,3 +43,4 @@ substitutions:
   _REGION: us-central1
   _REPOSITORY: kibitz
   _IMAGE_TAG: latest
+  _VITE_API_BASE_URL: ''

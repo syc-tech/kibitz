@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createServer = createServer;
 exports.startHttpServer = startHttpServer;
 const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
 const constants_1 = require("./config/constants");
 const messageRoutes_1 = require("./routes/messageRoutes");
 const userRoutes_1 = require("./routes/userRoutes");
@@ -14,6 +15,12 @@ const chatRoutes_1 = require("./routes/chatRoutes");
 const eventRoutes_1 = require("./routes/eventRoutes");
 async function createServer() {
     const app = (0, express_1.default)();
+    app.use((0, cors_1.default)({
+        origin: process.env.ALLOWED_ORIGINS
+            ? process.env.ALLOWED_ORIGINS.split(',').map((value) => value.trim())
+            : '*',
+        credentials: false
+    }));
     app.use(express_1.default.json({ limit: '1mb' }));
     app.get('/healthz', (_req, res) => res.json({ status: 'ok' }));
     app.use('/api', messageRoutes_1.messageRouter);

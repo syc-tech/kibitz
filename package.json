@@ -12,5 +12,8 @@
     "build": "npm run build --workspace server",
     "build:web": "npm run build --workspace web",
     "start": "npm run start --workspace server"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }
