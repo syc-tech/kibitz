@@ -1,0 +1,4 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+export function MessageFeed({ groupId, messages }) {
+    return (_jsxs("div", { className: "card", children: [_jsx("h2", { children: "Shared messages" }), groupId ? _jsxs("p", { children: ["Showing data for shared group ", _jsx("strong", { children: groupId }), "."] }) : _jsx("p", { children: "Select a chat to view its approved messages." }), _jsxs("div", { className: "message-feed", children: [messages.map((message) => (_jsxs("div", { className: "message-card", children: [_jsxs("div", { children: [_jsx("strong", { children: message.authorId }), " \u2014 ", new Date(message.postedAt).toLocaleString()] }), _jsx("div", { children: message.renderedMessage }), message.originalMessage !== message.renderedMessage && (_jsxs("small", { children: ["Original: ", message.originalMessage] }))] }, message.id))), messages.length === 0 && _jsx("p", { children: "No messages yet." })] })] }));
+}

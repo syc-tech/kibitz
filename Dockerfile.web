@@ -1,0 +1,11 @@
+FROM node:20-bullseye AS build
+WORKDIR /workspace
+COPY package*.json ./
+COPY web/package*.json web/
+RUN npm install
+COPY . .
+RUN npm run build:web
+
+FROM nginxinc/nginx-unprivileged:1.27-alpine
+COPY --from=build /workspace/web/dist /usr/share/nginx/html
+EXPOSE 8080
